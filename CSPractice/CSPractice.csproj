@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="ShapeDEMO.cs" />
+    <Compile Include="TypeConversionDEMO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

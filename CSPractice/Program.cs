@@ -6,7 +6,9 @@ namespace CSAdvanced
     {
         public static void Main()
         {
-            ShapeDEMO.DemoInheritance.DemoInheritanceMain();
+            //ShapeDEMO.DemoInheritance.DemoInheritanceMain();
+            TypeConversionDEMO.TypeConversion.ExplicitConversionMain();
+            TypeConversionDEMO.TypeConversion.ImplicitConversionMain();
         }
     }
 }
