@@ -7,8 +7,10 @@ namespace CSAdvanced
         public static void Main()
         {
             //ShapeDEMO.DemoInheritance.DemoInheritanceMain();
-            TypeConversionDEMO.TypeConversion.ExplicitConversionMain();
-            TypeConversionDEMO.TypeConversion.ImplicitConversionMain();
+            //BasicDEMO.TypeConversion.ExplicitConversionMain();
+            //BasicDEMO.TypeConversion.ImplicitConversionMain();
+            //BasicDEMO.Nuallable.NullableMain();
+            AttributesDEMO.TestClass.AttributesMain();
         }
     }
 }

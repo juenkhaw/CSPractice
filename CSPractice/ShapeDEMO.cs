@@ -20,11 +20,11 @@ namespace ShapeDEMO
                 ID = value;
             }
         }
-        public abstract double Area
+        public virtual double Area
         {
             get;
         }
-        public abstract double Perimeter
+        public virtual double Perimeter
         {
             get;
         }
