@@ -10,7 +10,9 @@ namespace CSAdvanced
             //BasicDEMO.TypeConversion.ExplicitConversionMain();
             //BasicDEMO.TypeConversion.ImplicitConversionMain();
             //BasicDEMO.Nuallable.NullableMain();
-            AttributesDEMO.TestClass.AttributesMain();
+            //AttributesDEMO.TestClass.AttributesMain();
+            //IndexerDEMO.IndexedNamesDEMO.IndexerMain();
+            DelegatesDEMO.DelegateTest.delegatesMain();
         }
     }
 }

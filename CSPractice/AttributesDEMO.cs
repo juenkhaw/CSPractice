@@ -2,6 +2,7 @@
 
 using System;
 using System.Diagnostics;
+using System.Reflection;
 
 /*
  * Attributes are used as metadata, which conveys runtime information of the behaviour of elements
@@ -73,12 +74,17 @@ namespace AttributesDEMO
                 message = value;
             }
         }
+        public override string ToString()
+        {
+            return string.Format("{0} - {1} - {2} - {3}", bugNo, developer, lastReview, message);
+        }
     }
 
     [DebugInfo(2, "Princess Leia", "6/1/2018", Message = "Bug 2")]
     public class Class1
     {
-        
+        [DebugInfo(3, "Nakayama", "6/1/2018", Message = "Bug 3")]
+        [DebugInfo(3, "Princess Leia", "6/1/2018", Message = "Bug 3 fixed")]
         public static void printMsg(string msg)
         {
             Console.WriteLine(msg);
@@ -122,13 +128,52 @@ namespace AttributesDEMO
             Class1.printMsg("Inside old function1");
         }
 
+        static void testReflection()
+        {
+            //retrieve metadata about attributes associated with the targeted element
+            Type type = typeof(Class1);
+
+            //retrieve attributes information from the element itself
+            Console.WriteLine(type.Name);
+            foreach (object attr in type.GetCustomAttributes(false))
+            { //bool indicates whether to retrieve attributes from its ancestor
+                DebugInfo dbi = (DebugInfo)attr;
+                if(dbi!=null)
+                    Console.WriteLine(dbi);
+            }
+
+            //iterate through each method associated with the targeted element
+            foreach (MethodInfo mdi in type.GetMethods())
+            {
+                Console.WriteLine(mdi.Name);
+                //retrieve method attribute from each method info
+                foreach (Attribute attr in mdi.GetCustomAttributes(true))
+                {
+                    DebugInfo dbi;
+                    try
+                    {
+                        //conversion of attribute to the custom user-defined attribute might not applicable for built-in methods
+                        //ToString(), GetHashCode()
+                        dbi = (DebugInfo)attr;
+                    } catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                        continue;
+                    }
+                    if (dbi != null)
+                        Console.WriteLine(dbi);
+                }
+            }
+        }
+
         public static void AttributesMain()
         {
             Class1.printMsg("Inside main function");
             testF1();
             testF2();
             testF1();
-            oldTestF1();
+            //oldTestF1();
+            testReflection();
         }
     }
 }
