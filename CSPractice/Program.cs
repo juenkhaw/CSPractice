@@ -12,7 +12,9 @@ namespace CSAdvanced
             //BasicDEMO.Nuallable.NullableMain();
             //AttributesDEMO.TestClass.AttributesMain();
             //IndexerDEMO.IndexedNamesDEMO.IndexerMain();
-            DelegatesDEMO.DelegateTest.delegatesMain();
+            //DelegatesDEMO.DelegateTest.delegatesMain();
+            //DelegatesDEMO.EventsTest.EventsMain();
+            MultiThreadDEMO.MultiThreadTest.MultiThreadMain();
         }
     }
 }

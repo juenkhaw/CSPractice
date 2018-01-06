@@ -77,4 +77,37 @@ namespace DelegatesDEMO
             sendString(ps2);
         }
     }
+
+    //PUBLISHER
+    public delegate string MyDel(string s);
+
+    //SUBSCRIBER
+    class EventsTest
+    {
+        /*
+         PUBLISHER-SUBSCRIBER MODEL
+         * Events are declared in a class associated with event handlers using delegates
+         * The class containing the event is called as the publisher with the definition of event and delegate
+         * This class invokes the event
+         * Class that accepts the event is called the subscriber class
+         * This class provides event handler and invokes the method from itself
+         */
+        event MyDel MyEvent;
+        public EventsTest()
+        {
+            this.MyEvent += new MyDel(this.welcomeUser);
+        }
+
+        public string welcomeUser(string username)
+        {
+            return "Welcome " + username;
+        }
+
+        public static void EventsMain()
+        {
+            EventsTest obj = new EventsTest();
+            string result = obj.MyEvent("Haku");
+            Console.WriteLine(result);
+        }
+    }
 }

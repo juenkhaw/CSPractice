@@ -38,6 +38,7 @@
     <Compile Include="AttributesDEMO.cs" />
     <Compile Include="DelegatesDEMO.cs" />
     <Compile Include="IndexerDEMO.cs" />
+    <Compile Include="MultiThreadDEMO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ShapeDEMO.cs" />
     <Compile Include="BasicDEMO.cs" />
